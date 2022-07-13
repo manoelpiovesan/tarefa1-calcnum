@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/index.css">
+    </head>
+
+    <body>
+      
+        <div class="header">
+            <img src="img/logouerj.svg" alt="">
+            <div class="sub-titulo">
+                <h1>Trabalho 1</h1>
+                <div class="grey">
+                    <h5>2 Métodos de Aproximação</h5>
+                    <span>Cálculo Numérico | 2022.1</span>
+                    <p>Professor Hermes Alves Filho</p>
+                </div>
+            
+            <hr>
+            <p><strong>Manoel Rodrigues</strong> | <span style="font-weight: 400;">201910073511</span> </p>
+            </div>
+        </div>
+        <div class="container">
+            
+            <div class="row">
+                <div class="col">
+                    <div class="card" style="width: 300px;">
+                        <div class="card-header">
+
+                        </div>
+                        <div class="card-body">
+
+                        </div>
+                        <div class="card-footer text-center">
+                            <button class="btn btn-success" id='btn-bissecao'>Bissecao</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-header text-center">
+                            <h3>Gráfico</h3>
+                        </div>
+                        <div class="card-body">
+                           <div class="card">
+                            <div class="card-body">
+                                <div class="legendas">
+                                    <span class="legenda"><div class="red-circle"></div> R* </span>
+                                    <span class="legenda"><div class="blue-circle"></div> Referência</span>
+                                </div>
+                                <hr>
+                                <canvas id="myChart" style="width:100%;"></canvas>
+                            </div>
+                           </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+        </div>
+        <div class="footer">
+
+        </div>
+        <!--Funções-->
+        <script src="js/index.js"></script>
+        <!--Bootstrap-->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+        <!--Chart.js-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    </body>
+</html>
