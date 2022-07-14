@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+        <link rel="stylesheet" href="../css/index.css">
+    </head>
+
+    <body>
+      
+        <div class="header">
+            <img src="img/logouerj.svg" alt="">
+            <div class="sub-titulo">
+                <h1>Trabalho 1</h1>
+                <div class="grey">
+                    <h5>2 Métodos Numéricos de Aproximação de Zeros Reais</h5>
+                    <span>Cálculo Numérico | 2022.1</span>
+                    <p>Professor Hermes Alves Filho</p>
+                </div>
+            
+            <hr>
+            <p><strong>Manoel Rodrigues</strong> | <span style="font-weight: 400;">201910073511</span> </p>
+            </div>
+        </div>
+        <div class="container">
+            
+            <div class="row">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Dados</h3>
+                        </div>
+                        <div class="card-body">
+                            <label for="">Função</label>
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <h3 class="funcao">F(x) = x² - 2</h3>
+                                </div>
+                            </div>
+                            <label for="">Intervalo</label>
+                            <div class="input-group">
+                                <input type="number" placeholder='a' id='intervalo-a' class="form-control">
+                                <input type="number" placeholder='b' id='intervalo-b' class="form-control">
+                            </div>
+                            <p></p>
+                            <label for="">Precisão</label>
+                            <input type="number" placeholder='Precisão' id='precisao' class="form-control">
+                        </div>
+                        <div class="card-footer text-center botoes">
+                                <button class="btn btn-success" id="btn-bissecao"><img src="img/snowflakes.png" width="20px" alt=""> Aproximar</button>
+                                <button class="btn btn-danger" id="btn-limpar"><img src="img/limpar.png" width="20px" alt=""> Limpar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Resultados</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="card">
+                                <div class="card-body">
+                                    <span>R*=<span id="r-estrela"></span></span>
+                                </div>
+                            </div>
+                            <p></p>
+                            <div class="card">
+                                <div class="card-body">
+                                    <span>Interações: <span id="interacoes">0</span> interações</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="card">
+                        <div class="card-header text-center">
+                            <h3>Gráfico</h3>
+                        </div>
+                        <div class="card-body">
+                           <div class="card">
+                            <div class="card-body">
+                                <div class="legendas">
+                                    <span class="legenda"><div class="red-circle"></div> R* </span>
+                                    <span class="legenda"><div class="blue-circle"></div> Referência</span>
+                                </div>
+                                <hr>
+                                <canvas id="myChart" style="width: 300px;"></canvas>
+                            </div>
+                           </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col">
+                    
+                </div>
+            </div>
+            <br>
+        </div>
+        <div class="footer">
+
+        </div>
+        <!--Funções-->
+        <script src="../js/index.js"></script>
+        <!--Bootstrap-->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+        <!--Chart.js-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    </body>
+</html>
