@@ -13,7 +13,7 @@
             <div class="sub-titulo">
                 <h1>Trabalho 1</h1>
                 <div class="grey">
-                    <h5>2 Métodos de Aproximação</h5>
+                    <h5>2 Métodos Numéricos de Aproximação de Zeros Reais</h5>
                     <span>Cálculo Numérico | 2022.1</span>
                     <p>Professor Hermes Alves Filho</p>
                 </div>
@@ -26,22 +26,52 @@
             
             <div class="row">
                 <div class="col">
-                    <div class="card" style="width: 300px;">
+                    <div class="card">
                         <div class="card-header">
-
+                            <h3>Dados</h3>
                         </div>
                         <div class="card-body">
-
+                            <label for="">Função</label>
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <h3 class="funcao">F(x) = x² - 2</h3>
+                                </div>
+                            </div>
+                            <label for="">Intervalo</label>
+                            <div class="input-group">
+                                <input type="number" placeholder='a' id='intervalo-a' class="form-control">
+                                <input type="number" placeholder='b' id='intervalo-b' class="form-control">
+                            </div>
+                            <p></p>
+                            <label for="">Precisão</label>
+                            <input type="number" placeholder='Precisão' id='precisao' class="form-control">
                         </div>
-                        <div class="card-footer text-center">
-                            <button class="btn btn-success" id='btn-bissecao'>Bissecao</button>
+                        <div class="card-footer text-center botoes">
+                                <button class="btn btn-success" id="btn-bissecao"><img src="img/snowflakes.png" width="20px" alt=""> Aproximar</button>
+                                <button class="btn btn-danger" id="btn-limpar"><img src="img/limpar.png" width="20px" alt=""> Limpar</button>
                         </div>
                     </div>
                 </div>
-            </div>
-            <br>
-            <div class="row">
                 <div class="col">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Resultados</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="card">
+                                <div class="card-body">
+                                    <span>R*=<span id="r-estrela"></span></span>
+                                </div>
+                            </div>
+                            <p></p>
+                            <div class="card">
+                                <div class="card-body">
+                                    <span>Interações: <span id="interacoes">0</span> interações</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
                     <div class="card">
                         <div class="card-header text-center">
                             <h3>Gráfico</h3>
@@ -54,11 +84,17 @@
                                     <span class="legenda"><div class="blue-circle"></div> Referência</span>
                                 </div>
                                 <hr>
-                                <canvas id="myChart" style="width:100%;"></canvas>
+                                <canvas id="myChart" style="width: 300px;"></canvas>
                             </div>
                            </div>
                         </div>
                     </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col">
+                    
                 </div>
             </div>
             <br>
