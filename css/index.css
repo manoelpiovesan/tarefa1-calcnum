@@ -82,11 +82,14 @@ a{
 .btn-primary{
     background-color: #212121;
     border: #212121;
+    transition: 0.5s;
 }
 
 .btn-primary:hover{
     background-color: #353535;
     border: #353535;
+    transform: scale(1.05);
+    transition: 0.5s;
 }
 
 .btn-primary:focus{
