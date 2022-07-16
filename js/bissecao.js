@@ -84,12 +84,13 @@ function Bissecao(){
         // calculando o drp se a referencia estiver marcada estiver marcado
         if(referenciaStatus){
             r = parseFloat(document.querySelector('#r').value)
-            document.querySelector('#drp').innerHTML = Drp(r, x0).toFixed(3)
+            document.querySelector('#drp').innerHTML = Drp(r, x0).toFixed(3) 
 
-            
-            
+            // coordenadas da referência
+            var coordsFr = [
+                {x: r, y: f(r)},
+            ]
 
-            
         }else{
 
             document.querySelector('#drp').innerHTML = "<span class='text-danger'> Sem referência</span>"
@@ -108,9 +109,7 @@ function Bissecao(){
         var coordsFx = [
             {x: x0, y: f(x0)},
         ]
-        var coordsFr = [
-            {x: r, y: f(r)},
-        ]
+        
 
 
 
@@ -118,7 +117,6 @@ function Bissecao(){
         var myChart = new Chart("myChart", {
             type: "scatter",
             data: {
-                labels: ['x0', 'x1', 'x2', 'x3', 'x4'],
                 datasets: [{
                     pointRadius: 4,
                     label: 'Dados',
