@@ -32,89 +32,114 @@
                 </div>
             </div>
             
-            <h4 class="text-center">Método da Bisseção</h4>
-            <p></p>
-            <div class="row">
-                <div class="col">
-                    
-                    <div class="card">
-                        <div class="card-header">
-                            <h3>Dados</h3>
-                        </div>
-                        <div class="card-body">
-                            <label for="">Função</label>
-                            <div class="card">
-                                <div class="card-body text-center">
-                                    <h3 class="funcao">F(x) = x² - 2</h3>
-                                </div>
-                            </div>
-                            <small class="">*para alterar a função altere no código-fonte.</small>
-                            <p></p>
-                            <label for="">Intervalo</label>
-                            <div class="input-group">
-                                <input type="number" placeholder='a' id='intervalo-a' class="form-control">
-                                <input type="number" placeholder='b' id='intervalo-b' class="form-control">
-                            </div>
-                            <p></p>
-                            <label for="">Precisão</label>
-                            <input type="number" placeholder='Precisão' id='precisao' class="form-control">
-                        </div>
-                        <div class="card-footer text-center botoes">
-                                <button class="btn btn-primary" id="btn-bissecao"><img src="../img/snowflakes.png" width="20px" alt=""> Aproximar</button>
-                                <button class="btn btn-danger" id="btn-limpar"><img src="../img/limpar.png" width="20px" alt=""> Limpar</button>
-                        </div>
+            <div class="container">
+                <h4 class="text-center">Método da Bisseção</h4>
+                <p></p>
+                <hr>
+                <!--aviso de intervalo nao achado-->
+                <div class="card bg-danger" id='aviso' hidden>
+                    <div class="card-body bg-danger text-light">
+                        <span>Não há raízes no intervalo</span>
                     </div>
                 </div>
-                <div class="col">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3>Resultados</h3>
-                        </div>
-                        <div class="card-body">
-                            <div class="card">
-                                <div class="card-body">
-                                    <span>R*=<span id="r-estrela"></span></span>
-                                </div>
+                <br>
+                <div class="row">
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>Dados</h3>
                             </div>
-                            <p></p>
-                            <div class="card">
-                                <div class="card-body">
-                                    <span>Interações: <span id="interacoes">0</span> interações</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="card">
-                        <div class="card-header text-center">
-                            <h3>Gráfico</h3>
-                        </div>
-                        <div class="card-body">
-                           <div class="card">
                             <div class="card-body">
-                                <div class="legendas">
-                                    <span class="legenda"><div class="red-circle"></div> R* </span>
-                                    <span class="legenda"><div class="blue-circle"></div> Referência</span>
+                                <label for="">Função</label>
+                                <div class="card">
+                                    <div class="card-body text-center">
+                                        <h3 class="funcao">F(x) = x² - 2</h3>
+                                    </div>
                                 </div>
-                                <hr>
-                                <canvas id="myChart" style="width: 300px;"></canvas>
+                                <small class="">*para alterar a função altere no código-fonte.</small>
+                                <p></p>
+                                <label for="">Intervalo</label>
+                                <div class="input-group">
+                                    <input type="number" placeholder='a' id='intervalo-a' class="form-control">
+                                    <input type="number" placeholder='b' id='intervalo-b' class="form-control">
+                                </div>
+                                <p></p>
+                                <label for="">Precisão</label>
+                                <input type="number" placeholder='Precisão' id='precisao' class="form-control">
+                                <p></p>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="referencia-checkbox">
+                                    <label class="form-check-label" for="referencia-checkbox">
+                                      Usar referência
+                                    </label>
+                                </div>
+                                <!-- card referencia-->
+                                <div id='referencia-div' style='margin-top: 10px;' hidden>
+                                    
+                                        <label for="">Referência (r)</label>
+                                        <input type="number" placeholder='r' id='r' class="form-control">
+                                  
+                                </div>
+                                <!---->
                             </div>
-                           </div>
+                            <div class="card-footer text-center botoes">
+                                    <button class="btn btn-primary" id="btn-bissecao"><img src="../img/snowflakes.png" width="20px" alt=""> Aproximar</button>
+                                    <button class="btn btn-danger" id="btn-limpar"><img src="../img/limpar.png" width="20px" alt=""> Limpar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>Resultados</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <span>R*=<span id="r-estrela"></span></span>
+                                    </div>
+                                </div>
+                                <p></p>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <span><span id="interacoes">0</span> interações</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <span>DRP=<span id="drp"></span> %</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="card">
+                            <div class="card-header text-center">
+                                <h3>Gráfico</h3>
+                            </div>
+                            <div class="card-body">
+                               <div class="card">
+                                <div class="card-body">
+                                    <div class="legendas">
+                                        <span class="legenda"><div class="red-circle"></div> R* </span>
+                                        <span class="legenda"><div class="blue-circle"></div> Referência</span>
+                                    </div>
+                                    <hr>
+                                    <canvas id="myChart" style="width: 300px;"></canvas>
+                                </div>
+                               </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
             <br>
-            <div class="row">
-                <div class="col">
-                    
-                </div>
-            </div>
-            <br>
-        </div>
-        <div class="footer">
-
-        </div>
         <!--Funções-->
         <script src="../js/bissecao.js"></script>
         <!--Bootstrap-->
