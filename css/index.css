@@ -103,9 +103,7 @@ a{
 }
 
 .card-menu{
-    width: 400px;
-    margin: 10px;
-    height: 400px;
+    margin-right: 30px;
 }
 .card-menu .card-body{
     justify-content: center;
@@ -122,5 +120,6 @@ a{
 }
 
 .thumbs{
-    width: 300px;
+    height: 300px;
+    padding: 40px;
 }
