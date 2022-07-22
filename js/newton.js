@@ -26,6 +26,8 @@ function dfdx(x){
     return dfdx
 }
 
+
+
 // eventListeners --------------------------------------------------------------------
     // ativando função de aproximar
 document.querySelector('#btn-newton').addEventListener('click', e=>{
@@ -94,6 +96,7 @@ function newtonRaphson(){
 
     // testando se fx é maior que a precisão
     while(Math.abs(f(x0))>e){
+        
 
         // console
         document.querySelector("#console").innerHTML += `> Testando se f(${x0}) = ${Math.abs(f(x0).toFixed(8))} > ${e}: <span class='text-success'>verdade</span> <br>`

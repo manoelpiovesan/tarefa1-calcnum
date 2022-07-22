@@ -111,7 +111,7 @@ a{
     margin-right: 30px;
     max-width: 400px;
     min-width: 400px;
-    height: 600px;
+    height: 550px;
 }
 .card-menu .card-body{
     display: block;
@@ -157,4 +157,12 @@ a{
 
     font-size: 14px;
     
+}
+
+.card-body .card-text, .card-title{
+    text-align: center;
+}
+
+.card-body .card-text{
+    font-size: 13px;
 }
