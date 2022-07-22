@@ -1,10 +1,33 @@
 function f(x){
-    var resultado = parseFloat(Math.pow(x,2) - 2) // >>>>>>>>>>>>>> colocar função aqui! <<<<<<<<<<<<
+    var resultado
+    var funcaoEscolhida = parseInt(document.querySelector('#funcao-escolhida').value)
+
+
+    if(funcaoEscolhida == 1){
+        resultado = parseFloat(Math.pow(x,2) - 2)
+    }
+    else if(funcaoEscolhida == 2){
+        resultado = parseFloat((2*x) - Math.cos(2*x))
+    }   
+     // >>>>>>>>>>>>>> colocar função aqui! <<<<<<<<<<<<
     return resultado
 }
 
 function dfdx(x){
-    var resultadoDfdx = parseFloat(2 * x) // >>>>>>>>>>>>>> colocar a derivada da função aqui! <<<<<<<<<<<<
+    var resultadoDfdx 
+    var funcaoEscolhida = parseInt(document.querySelector('#funcao-escolhida').value)
+
+
+    // >>>>>>>>>>>>>> colocar a derivada da função aqui! <<<<<<<<<<<<
+    if(funcaoEscolhida == 1){
+        resultadoDfdx = parseFloat(2 * x)
+        
+    }
+    else if(funcaoEscolhida == 2){
+        resultadoDfdx = parseFloat(2 + (2 * Math.sin(2*x))) // fx --> 2x - cos 2x
+    }   
+    
+   
     return resultadoDfdx
 }
 
@@ -13,6 +36,7 @@ document.querySelector('#btn-newton').addEventListener('click', e=>{
     newtonRaphson()
 })
 
+// ativando caixa de input de referencia
 document.querySelector('#referencia-checkbox').addEventListener('change', e=>{
     
     if(document.querySelector('#referencia-checkbox').checked){
@@ -21,6 +45,22 @@ document.querySelector('#referencia-checkbox').addEventListener('change', e=>{
         document.querySelector('#referencia-div').setAttribute('hidden', true)
     }
 })
+
+// mudando a função selecionada no display
+document.querySelector('#funcao-escolhida').addEventListener('change', e=>{
+
+    if(parseInt(document.querySelector('#funcao-escolhida').value) == 1){
+        document.querySelector('#funcao-display').textContent = 'F(x) = x² - 2'
+        document.querySelector('#derivada-display').textContent = "F'(x) = 2x"
+
+    }else if(parseInt(document.querySelector('#funcao-escolhida').value) == 2){
+        document.querySelector('#funcao-display').textContent = 'F(x) = 2x - cos(2x)'
+        document.querySelector('#derivada-display').textContent = "F'(x) = 2 + 2sen(2x)"
+    }
+
+})
+
+
 // funcao limpar
 
 function Limpar(){
@@ -29,6 +69,9 @@ function Limpar(){
     document.querySelector('#r-estrela').value = ''
     document.querySelector('#interacoes').value = ''
     document.querySelector('#r').value = ''
+
+    document.querySelector('#funcao-display').textContent = ''
+    document.querySelector('#derivada-display').textContent = ""
 }
 
 // funcao Drp

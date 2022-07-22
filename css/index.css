@@ -115,6 +115,7 @@ a{
 }
 .card-menu .card-body{
     display: block;
+    flex-wrap: wrap;
     
 }
 .card-menu .card-footer{

@@ -1,10 +1,20 @@
 
 // função principal! f(x)
 function f(x){
-    var resultado = parseFloat((Math.pow(x,2) - 2)) // >>>>>>>>>>>>>> alterar aqui a função! <<<<<<<<<<<<<
+    var resultado
+    var funcaoEscolhida = parseInt(document.querySelector('#funcao-escolhida').value)
+
+
+    if(funcaoEscolhida == 1){
+        resultado = parseFloat(Math.pow(x,2) - 2)
+    }
+    else if(funcaoEscolhida == 2){
+        resultado = parseFloat((2*x) - Math.cos(2*x))
+    }   
+     // >>>>>>>>>>>>>> colocar função aqui! <<<<<<<<<<<<
     return resultado
 }
-
+// evet listeners
 document.querySelector('#btn-limpar').addEventListener('click', e=>{
     Limpar();
 })
@@ -12,6 +22,7 @@ document.querySelector('#btn-bissecao').addEventListener('click', e=>{
     Bissecao();
 })
 
+// ativando caixa de input de referencia
 document.querySelector('#referencia-checkbox').addEventListener('change', e=>{
     
     if(document.querySelector('#referencia-checkbox').checked){
@@ -20,6 +31,21 @@ document.querySelector('#referencia-checkbox').addEventListener('change', e=>{
         document.querySelector('#referencia-div').setAttribute('hidden', true)
     }
 })
+
+// mudando a função selecionada no display
+document.querySelector('#funcao-escolhida').addEventListener('change', e=>{
+
+    if(parseInt(document.querySelector('#funcao-escolhida').value) == 1){
+        document.querySelector('#funcao-display').textContent = 'F(x) = x² - 2'
+        
+
+    }else if(parseInt(document.querySelector('#funcao-escolhida').value) == 2){
+        document.querySelector('#funcao-display').textContent = 'F(x) = 2x - cos(2x)'
+        
+    }
+
+})
+
 
 // função DRP
 function Drp(r,rEstrela){
@@ -35,6 +61,8 @@ function Limpar(){
     document.querySelector('#interacoes').value = ''
     document.querySelector('#r').value = ''
     document.querySelector('#aviso').setAttribute('hidden', true) // escondendo aviso 
+    document.querySelector('#funcao-display').textContent = ''
+    
     
 }
 
