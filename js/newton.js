@@ -36,6 +36,10 @@ document.querySelector('#btn-newton').addEventListener('click', e=>{
     newtonRaphson()
 })
 
+document.querySelector('#btn-limpar').addEventListener('click', e=>{
+    Limpar()
+})
+
 // ativando caixa de input de referencia
 document.querySelector('#referencia-checkbox').addEventListener('change', e=>{
     
@@ -64,14 +68,15 @@ document.querySelector('#funcao-escolhida').addEventListener('change', e=>{
 // funcao limpar
 
 function Limpar(){
+    
     document.querySelector('#x0').value = ''
     document.querySelector('#e').value = ''
     document.querySelector('#r-estrela').value = ''
     document.querySelector('#interacoes').value = ''
     document.querySelector('#r').value = ''
-
     document.querySelector('#funcao-display').textContent = ''
-    document.querySelector('#derivada-display').textContent = ""
+    document.querySelector('#derivada-display').textContent = ''
+    document.querySelector("#console").innerHTML = ``
 }
 
 // funcao Drp
@@ -81,7 +86,9 @@ function Drp(r,rEstrela){
 
 // função de aproximação
 function newtonRaphson(){
-    
+    document.querySelector("#console").innerHTML = ``
+    document.querySelector("#console").innerHTML += `> Iniciando método... <br>`
+
     var x0, e, cont=0;
 
     //lendo os inputs da interface
@@ -90,10 +97,23 @@ function newtonRaphson(){
 
     while(Math.abs(f(x0))>e){
 
+        // console
+        document.querySelector("#console").innerHTML += `> Testando se f(${x0}) = ${Math.abs(f(x0).toFixed(8))} > ${e}: <span class='text-success'>verdade</span> <br>`
+        document.querySelector("#console").innerHTML += `> Continuando para próxima interação... <br>`
+
+
         x0 = (x0 - (f(x0)/dfdx(x0)))
         
+        // console
+        document.querySelector("#console").innerHTML += `> Novo valor de x0: ${x0} <br>`
+        
+
         cont += 1
     }
+
+    // console
+    document.querySelector("#console").innerHTML += `> Testando se f(${x0}) = ${Math.abs(f(x0).toFixed(8))} > ${e}: <span class='text-danger'>falso</span> <br>`
+    document.querySelector("#console").innerHTML += `> Raiz encontrada: ${x0} <br>`
 
     if(document.querySelector('#referencia-checkbox').checked){
         var r = document.querySelector('#r').value

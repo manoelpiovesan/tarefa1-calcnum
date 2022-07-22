@@ -54,6 +54,7 @@ function Drp(r,rEstrela){
 
 // função de limpar os campos da interface
 function Limpar(){
+
     document.querySelector('#intervalo-a').value = ''
     document.querySelector('#intervalo-b').value = ''
     document.querySelector('#precisao').value = ''
@@ -62,14 +63,19 @@ function Limpar(){
     document.querySelector('#r').value = ''
     document.querySelector('#aviso').setAttribute('hidden', true) // escondendo aviso 
     document.querySelector('#funcao-display').textContent = ''
-    
-    
+    document.querySelector("#console").innerHTML = ``
+
 }
 
 // função de calcular a aproximação
 function Bissecao(){
-   
-    const referenciaStatus = document.querySelector("#referencia-checkbox").checked
+
+    //console inicio
+    document.querySelector("#console").innerHTML = ``
+    document.querySelector("#console").innerHTML += `> Iniciando método... <br>`
+
+
+    
 
     var a, b, x0, e, int = 0, r; // a-> inicio do intervalo / b-> fim do intervalo / e-> precisão / int-> número de interações / r-> referencia / fr -> f(r)
 
@@ -78,10 +84,14 @@ function Bissecao(){
     b = parseFloat(document.querySelector('#intervalo-b').value)
     e = parseFloat(document.querySelector('#precisao').value)
 
+    
+    
 
 
     // verificando que existem raízes no intervalo (teorema de bolzano).
     if((f(a)*f(b))<0){
+
+        document.querySelector("#console").innerHTML += `> Verificando que ${f(a)} * ${f(b)} é < 0: <span class='text-success'>verdadeiro</span> <br>`
 
         document.querySelector('#aviso').setAttribute('hidden', true) // escondendo aviso 
 
@@ -89,28 +99,40 @@ function Bissecao(){
         console.log('Existem raizes neste intervalo.') 
 
         x0 = (a+b)/2; // calculando o chute inicial.
-
+        document.querySelector("#console").innerHTML += `> Novo x0: ${x0} <br>`
         // verificando se f(x0) está maior que o erro desejado.
         while(Math.abs(f(x0))>e){
+
+            document.querySelector("#console").innerHTML += `> Testando se f(${x0}) = ${Math.abs(f(x0).toFixed(8))} > ${e}: <span class='text-success'>verdade</span> <br>`
 
             // verificando se a raiz está entre a e x0 com o teorema de bolzano.
             if(f(a)*f(x0)<0){
 
+                document.querySelector("#console").innerHTML += `> Verificando se ${f(a)} * ${f(x0)} é < 0: <span class='text-success'>verdadeiro</span> <br>`
+                
                 b = x0 // caso esteja entre a e x0, b assume o valor de x0.
 
-            }else{
+                document.querySelector("#console").innerHTML += `> Novo intervalo: [${a};${b}]<br>`
 
+            }else{
+                document.querySelector("#console").innerHTML += `> Verificando se ${f(a)} * ${f(x0)} é < 0: <span class='text-danger'>falso</span> <br>`
                 a=x0 // caso contrário, o 'a' assume o valor de x0.
+                document.querySelector("#console").innerHTML += `> Novo intervalo: [${a};${b}]<br>`
             }
 
+
+            
             x0 = (a+b)/2; // cálculo do novo x0, diminuindo o intervalo.
+            document.querySelector("#console").innerHTML += `> Novo x0: ${x0} <br>`
 
             int +=1; // contando o número de interações feitas.
         }
 
+        document.querySelector("#console").innerHTML += `> Testando se f(${x0}) = ${Math.abs(f(x0).toFixed(8))} > ${e}: <span class='text-danger'>falso</span> <br>`
+        document.querySelector("#console").innerHTML += `> Raiz encontrada: ${x0} <br>`
 
         // calculando o drp se a referencia estiver marcada estiver marcado
-        if(referenciaStatus){
+        if(document.querySelector("#referencia-checkbox").checked){
             r = parseFloat(document.querySelector('#r').value)
             document.querySelector('#drp').innerHTML = Drp(r, x0).toFixed(3) 
 
