@@ -1,37 +1,33 @@
 function f(x){
-    var resultado
-    var funcaoEscolhida = parseInt(document.querySelector('#funcao-escolhida').value)
-
+    var fx, funcaoEscolhida = parseInt(document.querySelector('#funcao-escolhida').value)
 
     if(funcaoEscolhida == 1){
-        resultado = parseFloat(Math.pow(x,2) - 2)
+        fx = parseFloat(Math.pow(x,2) - 2)
     }
     else if(funcaoEscolhida == 2){
-        resultado = parseFloat((2*x) - Math.cos(2*x))
+        fx = parseFloat((2*x) - Math.cos(2*x))
     }   
      // >>>>>>>>>>>>>> colocar função aqui! <<<<<<<<<<<<
-    return resultado
+    return fx
 }
 
 function dfdx(x){
-    var resultadoDfdx 
-    var funcaoEscolhida = parseInt(document.querySelector('#funcao-escolhida').value)
-
-
-    // >>>>>>>>>>>>>> colocar a derivada da função aqui! <<<<<<<<<<<<
+    var dfdx, funcaoEscolhida = parseInt(document.querySelector('#funcao-escolhida').value)
+    
     if(funcaoEscolhida == 1){
-        resultadoDfdx = parseFloat(2 * x)
+        dfdx = parseFloat(2 * x)
         
     }
     else if(funcaoEscolhida == 2){
-        resultadoDfdx = parseFloat(2 + (2 * Math.sin(2*x))) // fx --> 2x - cos 2x
+        dfdx = parseFloat(2 + (2 * Math.sin(2*x))) // fx --> 2x - cos 2x
     }   
-    
+    // >>>>>>>>>>>>>> colocar a derivada da função aqui! <<<<<<<<<<<<
    
-    return resultadoDfdx
+    return dfdx
 }
 
-// eventListeners
+// eventListeners --------------------------------------------------------------------
+    // ativando função de aproximar
 document.querySelector('#btn-newton').addEventListener('click', e=>{
     newtonRaphson()
 })
@@ -40,7 +36,7 @@ document.querySelector('#btn-limpar').addEventListener('click', e=>{
     Limpar()
 })
 
-// ativando caixa de input de referencia
+    // ativando caixa de input de referencia
 document.querySelector('#referencia-checkbox').addEventListener('change', e=>{
     
     if(document.querySelector('#referencia-checkbox').checked){
@@ -50,7 +46,7 @@ document.querySelector('#referencia-checkbox').addEventListener('change', e=>{
     }
 })
 
-// mudando a função selecionada no display
+    // mudando a função selecionada no display
 document.querySelector('#funcao-escolhida').addEventListener('change', e=>{
 
     if(parseInt(document.querySelector('#funcao-escolhida').value) == 1){
@@ -66,7 +62,6 @@ document.querySelector('#funcao-escolhida').addEventListener('change', e=>{
 
 
 // funcao limpar
-
 function Limpar(){
     
     document.querySelector('#x0').value = ''
@@ -86,6 +81,8 @@ function Drp(r,rEstrela){
 
 // função de aproximação
 function newtonRaphson(){
+
+    // limpando console
     document.querySelector("#console").innerHTML = ``
     document.querySelector("#console").innerHTML += `> Iniciando método... <br>`
 
@@ -95,19 +92,20 @@ function newtonRaphson(){
     x0 = document.querySelector('#x0').value
     e = document.querySelector('#e').value
 
+    // testando se fx é maior que a precisão
     while(Math.abs(f(x0))>e){
 
         // console
         document.querySelector("#console").innerHTML += `> Testando se f(${x0}) = ${Math.abs(f(x0).toFixed(8))} > ${e}: <span class='text-success'>verdade</span> <br>`
         document.querySelector("#console").innerHTML += `> Continuando para próxima interação... <br>`
 
-
+        // novo chute x0
         x0 = (x0 - (f(x0)/dfdx(x0)))
         
         // console
         document.querySelector("#console").innerHTML += `> Novo valor de x0: ${x0} <br>`
         
-
+        // contador de interações
         cont += 1
     }
 
@@ -115,6 +113,8 @@ function newtonRaphson(){
     document.querySelector("#console").innerHTML += `> Testando se f(${x0}) = ${Math.abs(f(x0).toFixed(8))} > ${e}: <span class='text-danger'>falso</span> <br>`
     document.querySelector("#console").innerHTML += `> Raiz encontrada: ${x0} <br>`
 
+
+    // calculando drp se o usuário tiver marcado o checkbox
     if(document.querySelector('#referencia-checkbox').checked){
         var r = document.querySelector('#r').value
         document.querySelector('#drp').innerHTML = Drp(x0, r).toFixed(3)
@@ -125,9 +125,12 @@ function newtonRaphson(){
         document.querySelector('#drp').innerHTML = "<span class='text-danger'> Sem referência</span>"
     }
 
+    // enviando para a interface os valores de x0 e de interações
     document.querySelector('#r-estrela').innerHTML = x0
     document.querySelector('#interacoes').innerHTML = cont
 
+
+    // definindo as coordenadas da raiz encontrada p enviar para o gráfico
     var coordsFx = [
         {x: x0, y: f(x0)},
     ]
