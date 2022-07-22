@@ -14,6 +14,8 @@ a{
     display: flex;
     align-items: center;
     justify-content: center;
+
+    margin-bottom: 100px;
     
 }
 .icon{
@@ -107,14 +109,17 @@ a{
 
 .card-menu{
     margin-right: 30px;
+    max-width: 400px;
+    min-width: 400px;
+    height: 600px;
 }
 .card-menu .card-body{
-    justify-content: center;
-    display: flex;
+    
     
 }
 .card-menu .card-footer{
     padding: 10px;
+
 }
 .metodo-titulo{
     margin-left: 20px;
@@ -124,7 +129,9 @@ a{
 
 .thumbs{
     height: 300px;
-    padding: 40px;
+    width: auto;
+    flex: 1;
+    padding: 20px;
 }
 
 .funcao{
