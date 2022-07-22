@@ -114,7 +114,7 @@ a{
     height: 600px;
 }
 .card-menu .card-body{
-    
+    display: block;
     
 }
 .card-menu .card-footer{
